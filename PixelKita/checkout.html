@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Pesanan - PixelKita Studio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">shopupedia<span>Studio</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="produk.html">Produk & Jasa</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="checkout.html" class="btn btn-primary btn-sm">
+          🛒 Keranjang <span id="cart-badge" class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="section-header">
+      <h2>Keranjang Belanja & Checkout</h2>
+      <p>Periksa kembali pesanan Anda dan lengkapi detail kontak di bawah ini.</p>
+    </div>
+
+    <!-- TABEL KERANJANG -->
+    <div class="table-wrapper" style="margin-bottom: 2.5rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Subtotal</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items-container">
+          <!-- Render otomatis via js/checkout.js -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FORM CHECKOUT -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start;">
+      <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow-sm);">
+        <h3 style="margin-bottom: 1.2rem; color: var(--secondary);">Data Pemesan</h3>
+        <form id="checkout-form">
+          <div class="form-group">
+            <label for="cust-nama">Nama Lengkap *</label>
+            <input type="text" id="cust-nama" class="form-control" required placeholder="Contoh: Budi Santoso">
+          </div>
+          <div class="form-group">
+            <label for="cust-email">Alamat Email *</label>
+            <input type="email" id="cust-email" class="form-control" required placeholder="budi@example.com">
+          </div>
+          <div class="form-group">
+            <label for="cust-hp">Nomor WhatsApp / HP *</label>
+            <input type="tel" id="cust-hp" class="form-control" required placeholder="08123456789">
+          </div>
+          <div class="form-group">
+            <label for="cust-alamat">Alamat Lengkap / Kota</label>
+            <textarea id="cust-alamat" class="form-control" rows="2" placeholder="Nama jalan, kota/kabupaten"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="cust-catatan">Catatan Pesanan / Request Desain</label>
+            <textarea id="cust-catatan" class="form-control" rows="2" placeholder="Tuliskan brief singkat atau request warna"></textarea>
+          </div>
+
+          <h4 style="margin: 1.5rem 0 0.8rem 0; color: var(--secondary);">Metode Pembayaran</h4>
+          <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="radio" name="metode_bayar" value="QRIS" checked>
+              <strong>QRIS (Instan)</strong>
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="radio" name="metode_bayar" value="Transfer Bank">
+              <strong>Transfer Bank (BCA / Mandiri)</strong>
+            </label>
+          </div>
+
+          <button type="submit" id="btn-submit-order" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">
+            Konfirmasi & Buat Pesanan
+          </button>
+        </form>
+      </div>
+
+      <!-- RINGKASAN HARGA -->
+      <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow-sm);">
+        <h3 style="margin-bottom: 1.2rem; color: var(--secondary);">Ringkasan Biaya</h3>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem; color: var(--text-muted);">
+          <span>Subtotal Item:</span>
+          <strong id="cart-subtotal" style="color: var(--secondary);">Rp 0</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1.2rem; color: var(--text-muted);">
+          <span>Biaya Layanan:</span>
+          <strong style="color: var(--success);">GRATIS</strong>
+        </div>
+        <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 1.2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.1rem; font-weight: 700; color: var(--secondary);">Total Tagihan:</span>
+          <span id="cart-total" style="font-size: 1.5rem; font-weight: 800; color: var(--primary);">Rp 0</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PixelKita Studio.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

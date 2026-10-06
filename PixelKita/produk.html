@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Produk & Jasa - Shopupedia</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">Shopupedia <span>Studio</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="produk.html" class="active">Produk & Jasa</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="checkout.html" class="btn btn-outline btn-sm">
+          🛒 Keranjang <span id="cart-badge" class="cart-badge">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- KATALOG PRODUK DIGITAL -->
+    <section style="margin-bottom: 4rem;">
+      <div class="section-header">
+        <h2>Produk Digital Siap Pakai</h2>
+        <p>Template desain siap edit untuk kebutuhan promosi instan UMKM kamu.</p>
+      </div>
+      <div id="produk-grid" class="grid">
+        <!-- Render otomatis via js/produk.js -->
+      </div>
+    </section>
+
+    <!-- KATALOG JASA DESAIN -->
+    <section id="jasa-section" style="margin-bottom: 3rem;">
+      <div class="section-header">
+        <h2>Jasa Desain Profesional</h2>
+        <p>Desain eksklusif dikerjakan khusus sesuai karakter bisnismu.</p>
+      </div>
+      <div id="jasa-grid" class="grid">
+        <!-- Render otomatis via js/produk.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 PixelKita Studio. Solusi Branding & Desain UMKM.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/produk.js"></script>
+</body>
+</html>

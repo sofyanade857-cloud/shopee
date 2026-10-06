@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bukti Transaksi - Shopupedia Studio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">Shopupedia <span>Studio</span></a>
+      <div class="nav-actions">
+        <a href="produk.html" class="btn btn-outline btn-sm">Katalog Produk</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="transaksi-detail-container" style="max-width: 800px; margin: 2rem auto;">
+      <!-- Render otomatis via js/transaksi.js -->
+    </div>
+
+    <!-- BOX KONFIRMASI & DOWNLOAD TEMPLATE -->
+    <div id="area-aksi-pembayaran" style="max-width: 800px; margin: 0 auto 2rem auto; text-align: center;">
+      
+      <!-- Opsi 1: Tombol Konfirmasi Pembayaran (Awal Muncul) -->
+      <div id="box-tombol-konfirmasi" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <button id="btn-verifikasi" onclick="verifikasiPembayaran()" class="btn btn-primary" style="background-color: #28a745; border: none; padding: 12px 24px; font-weight: bold; cursor: pointer;">
+          ✓ Saya Sudah Bayar
+        </button>
+
+        <a id="btn-wa-admin" href="https://wa.me/6289525922654?text=Halo%20Admin%20Shopupedia,%20saya%20sudah%20melakukan%20pembayaran." target="_blank" class="btn btn-outline" style="border: 1px solid #25D366; color: #25D366; padding: 12px 24px; font-weight: bold; text-decoration: none;">
+          💬 Konfirmasi via WA
+        </a>
+      </div>
+
+      <!-- Opsi 2: Status Terverifikasi + Download File (Default Tersembunyi) -->
+      <div id="box-download-file" style="display: none; background-color: #e9f7ef; border: 1px solid #28a745; border-radius: 12px; padding: 1.5rem; margin-top: 1rem;">
+        <div style="background-color: #d4edda; color: #155724; padding: 6px 16px; border-radius: 50px; display: inline-block; font-weight: bold; margin-bottom: 0.75rem;">
+          ✓ Pembayaran Terverifikasi
+        </div>
+        <h3 style="color: #28a745; margin-bottom: 0.5rem;">Terima Kasih! Pesanan Kamu Sudah Selesai</h3>
+        <p style="color: #555; margin-bottom: 1.25rem;">Silakan klik tombol di bawah untuk mengunduh / mengakses file template kamu.</p>
+
+        <a href="https://canva.com" target="_blank" class="btn btn-primary" style="background-color: #007bff; border: none; padding: 12px 24px; font-weight: bold; text-decoration: none; display: inline-block;">
+          📥 Download / Akses Template
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Shopupedia Studio.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/transaksi.js"></script>
+
+  <!-- LOGIKA INTERAKTIF STATUS BAYAR -->
+  <script>
+    function verifikasiPembayaran() {
+      // Sembunyikan tombol 'Saya Sudah Bayar'
+      document.getElementById('box-tombol-konfirmasi').style.display = 'none';
+
+      // Sembunyikan Box QRIS (jika element QRIS punya id/class di js/transaksi.js)
+      const qrisBox = document.querySelector('#transaksi-detail-container .qris-box') || document.querySelector('#transaksi-detail-container img[src*="qr"]')?.parentElement;
+      if (qrisBox) {
+        qrisBox.style.display = 'none';
+      }
+
+      // Tampilkan box status lunas + tombol download
+      document.getElementById('box-download-file').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
